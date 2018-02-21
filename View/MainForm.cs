@@ -91,6 +91,7 @@ namespace SourceLiveTimer.View
             RunView.Add(possibleTimeSaveUI);
             RunView.Add(comparisonBestUI);
             RunView.Add(sumOfBestUI);
+            RunView.Add(bestPossibleUI1);
             RunView.Add(currentDemoUI);
             RunView.Add(runNameUI);
 
