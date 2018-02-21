@@ -175,6 +175,12 @@
     <Compile Include="View\RunViewComponent\Splits\SplitsUI.Designer.cs">
       <DependentUpon>SplitsUI.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\RunViewComponent\BestPossible\BestPossible.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\RunViewComponent\BestPossible\BestPossible.Designer.cs">
+      <DependentUpon>BestPossible.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\RunViewComponent\SumOfBest\SumOfBestUI.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -219,6 +225,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\RunViewComponent\Splits\SplitsUI.resx">
       <DependentUpon>SplitsUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\RunViewComponent\BestPossible\BestPossible.resx">
+      <DependentUpon>BestPossible.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\RunViewComponent\SumOfBest\SumOfBestUI.resx">
       <DependentUpon>SumOfBestUI.cs</DependentUpon>
