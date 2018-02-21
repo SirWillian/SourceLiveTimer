@@ -31,8 +31,8 @@ namespace SourceLiveTimer.View
         private void InitializeComponent()
         {
             this.tableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
-            this.sumOfBestTextLabel = new System.Windows.Forms.Label();
-            this.sumOfBestTimeLabel = new System.Windows.Forms.Label();
+            this.bestPossibleTextLabel = new System.Windows.Forms.Label();
+            this.bestPossibleTimeLabel = new System.Windows.Forms.Label();
             this.tableLayoutPanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -43,8 +43,8 @@ namespace SourceLiveTimer.View
             this.tableLayoutPanel.ColumnCount = 2;
             this.tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel.Controls.Add(this.sumOfBestTextLabel, 0, 0);
-            this.tableLayoutPanel.Controls.Add(this.sumOfBestTimeLabel, 1, 0);
+            this.tableLayoutPanel.Controls.Add(this.bestPossibleTextLabel, 0, 0);
+            this.tableLayoutPanel.Controls.Add(this.bestPossibleTimeLabel, 1, 0);
             this.tableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel.Margin = new System.Windows.Forms.Padding(0);
@@ -54,36 +54,36 @@ namespace SourceLiveTimer.View
             this.tableLayoutPanel.Size = new System.Drawing.Size(162, 30);
             this.tableLayoutPanel.TabIndex = 0;
             // 
-            // sumOfBestTextLabel
+            // bestPossibleTextLabel
             // 
-            this.sumOfBestTextLabel.AutoSize = true;
-            this.sumOfBestTextLabel.BackColor = System.Drawing.Color.Transparent;
-            this.sumOfBestTextLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.sumOfBestTextLabel.Font = new System.Drawing.Font("Segoe UI", 8.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.sumOfBestTextLabel.ForeColor = System.Drawing.Color.Black;
-            this.sumOfBestTextLabel.Location = new System.Drawing.Point(3, 3);
-            this.sumOfBestTextLabel.Margin = new System.Windows.Forms.Padding(3);
-            this.sumOfBestTextLabel.Name = "sumOfBestTextLabel";
-            this.sumOfBestTextLabel.Size = new System.Drawing.Size(75, 24);
-            this.sumOfBestTextLabel.TabIndex = 3;
-            this.sumOfBestTextLabel.Text = "Best Possible";
-            this.sumOfBestTextLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.bestPossibleTextLabel.AutoSize = true;
+            this.bestPossibleTextLabel.BackColor = System.Drawing.Color.Transparent;
+            this.bestPossibleTextLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.bestPossibleTextLabel.Font = new System.Drawing.Font("Segoe UI", 8.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bestPossibleTextLabel.ForeColor = System.Drawing.Color.Black;
+            this.bestPossibleTextLabel.Location = new System.Drawing.Point(3, 3);
+            this.bestPossibleTextLabel.Margin = new System.Windows.Forms.Padding(3);
+            this.bestPossibleTextLabel.Name = "bestPossibleTextLabel";
+            this.bestPossibleTextLabel.Size = new System.Drawing.Size(75, 24);
+            this.bestPossibleTextLabel.TabIndex = 3;
+            this.bestPossibleTextLabel.Text = "Best Possible";
+            this.bestPossibleTextLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // sumOfBestTimeLabel
+            // bestPossibleTimeLabel
             // 
-            this.sumOfBestTimeLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.bestPossibleTimeLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.sumOfBestTimeLabel.AutoSize = true;
-            this.sumOfBestTimeLabel.BackColor = System.Drawing.Color.Transparent;
-            this.sumOfBestTimeLabel.Font = new System.Drawing.Font("Segoe UI", 8.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.sumOfBestTimeLabel.ForeColor = System.Drawing.Color.Black;
-            this.sumOfBestTimeLabel.Location = new System.Drawing.Point(146, 4);
-            this.sumOfBestTimeLabel.Margin = new System.Windows.Forms.Padding(0, 4, 4, 4);
-            this.sumOfBestTimeLabel.Name = "sumOfBestTimeLabel";
-            this.sumOfBestTimeLabel.Size = new System.Drawing.Size(12, 22);
-            this.sumOfBestTimeLabel.TabIndex = 3;
-            this.sumOfBestTimeLabel.Text = "-";
-            this.sumOfBestTimeLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.bestPossibleTimeLabel.AutoSize = true;
+            this.bestPossibleTimeLabel.BackColor = System.Drawing.Color.Transparent;
+            this.bestPossibleTimeLabel.Font = new System.Drawing.Font("Segoe UI", 8.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bestPossibleTimeLabel.ForeColor = System.Drawing.Color.Black;
+            this.bestPossibleTimeLabel.Location = new System.Drawing.Point(146, 4);
+            this.bestPossibleTimeLabel.Margin = new System.Windows.Forms.Padding(0, 4, 4, 4);
+            this.bestPossibleTimeLabel.Name = "bestPossibleTimeLabel";
+            this.bestPossibleTimeLabel.Size = new System.Drawing.Size(12, 22);
+            this.bestPossibleTimeLabel.TabIndex = 3;
+            this.bestPossibleTimeLabel.Text = "-";
+            this.bestPossibleTimeLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // BestPossibleUI
             // 
@@ -105,7 +105,7 @@ namespace SourceLiveTimer.View
         #endregion
 
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel;
-        private System.Windows.Forms.Label sumOfBestTextLabel;
-        private System.Windows.Forms.Label sumOfBestTimeLabel;
+        private System.Windows.Forms.Label bestPossibleTextLabel;
+        private System.Windows.Forms.Label bestPossibleTimeLabel;
     }
 }

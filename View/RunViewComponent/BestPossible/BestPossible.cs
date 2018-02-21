@@ -15,20 +15,20 @@ namespace SourceLiveTimer.View
     {
         private Run run;
 
-        private const int SUM_OF_BEST_HEIGHT = 20;
-        private Font SUM_OF_BEST_TEXT_FONT = new System.Drawing.Font("Segoe UI", 8.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-        private Font SUM_OF_BEST_TIME_FONT = new System.Drawing.Font("Segoe UI", 8.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-        private Color SUM_OF_BEST_TEXT_COLOR = System.Drawing.Color.White;
+        private const int BEST_POSSIBLE_HEIGHT = 20;
+        private Font BEST_POSSIBLE_TEXT_FONT = new System.Drawing.Font("Segoe UI", 8.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+        private Font BEST_POSSIBLE_TIME_FONT = new System.Drawing.Font("Segoe UI", 8.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+        private Color BEST_POSSIBLE_TEXT_COLOR = System.Drawing.Color.White;
         private TimeFormatter TIME_FORMATTER = new FancyTimeFormatter("-");
 
         public BestPossibleUI()
         {
             InitializeComponent();
-            this.sumOfBestTextLabel.Font = SUM_OF_BEST_TEXT_FONT;
-            this.sumOfBestTimeLabel.Font = SUM_OF_BEST_TIME_FONT;
-            this.sumOfBestTextLabel.ForeColor = SUM_OF_BEST_TEXT_COLOR;
-            this.sumOfBestTimeLabel.ForeColor = SUM_OF_BEST_TEXT_COLOR;
-            this.tableLayoutPanel.RowStyles[0].Height = SUM_OF_BEST_HEIGHT;
+            this.bestPossibleTextLabel.Font = BEST_POSSIBLE_TEXT_FONT;
+            this.bestPossibleTimeLabel.Font = BEST_POSSIBLE_TIME_FONT;
+            this.bestPossibleTextLabel.ForeColor = BEST_POSSIBLE_TEXT_COLOR;
+            this.bestPossibleTimeLabel.ForeColor = BEST_POSSIBLE_TEXT_COLOR;
+            this.tableLayoutPanel.RowStyles[0].Height = BEST_POSSIBLE_HEIGHT;
         }
 
         public void LoadRun(Run run)
@@ -39,14 +39,14 @@ namespace SourceLiveTimer.View
 
         public void UpdateComponent()
         {
-            int? sumOfBest = run.GetSumOfBest();
-            sumOfBestTimeLabel.Text = TIME_FORMATTER.FormatTicks(sumOfBest, run.Category.TicksPerSecond);
+            int? bestPossible = run.GetBestPossible();
+            bestPossibleTimeLabel.Text = TIME_FORMATTER.FormatTicks(bestPossible, run.Category.TicksPerSecond);
         }
 
         public void UnloadRun()
         {
             run = null;
-            sumOfBestTimeLabel.Text = TIME_FORMATTER.NullTime;
+            bestPossibleTimeLabel.Text = TIME_FORMATTER.NullTime;
         }        
 
     }
