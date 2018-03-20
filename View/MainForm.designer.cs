@@ -52,6 +52,7 @@
             this.comparisonBestUI = new SourceLiveTimer.View.ComparisonBestUI();
             this.sumOfBestUI = new SourceLiveTimer.View.SumOfBestUI();
             this.currentDemoUI = new SourceLiveTimer.View.CurrentDemoUI();
+            this.bestPossibleUI1 = new SourceLiveTimer.View.BestPossibleUI();
             this.runNameUI = new SourceLiveTimer.View.RunNameUI();
             this.contextMenuStrip.SuspendLayout();
             this.tableLayoutPanel.SuspendLayout();
@@ -187,13 +188,15 @@
             this.tableLayoutPanel.Controls.Add(this.comparisonBestUI, 0, 3);
             this.tableLayoutPanel.Controls.Add(this.sumOfBestUI, 0, 4);
             this.tableLayoutPanel.Controls.Add(this.currentDemoUI, 0, 5);
+            this.tableLayoutPanel.Controls.Add(this.bestPossibleUI1, 0, 6);
             this.tableLayoutPanel.ForeColor = System.Drawing.Color.White;
             this.tableLayoutPanel.Location = new System.Drawing.Point(0, 45);
             this.tableLayoutPanel.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel.MinimumSize = new System.Drawing.Size(220, 0);
             this.tableLayoutPanel.Name = "tableLayoutPanel";
             this.tableLayoutPanel.Padding = new System.Windows.Forms.Padding(0, 0, 0, 3);
-            this.tableLayoutPanel.RowCount = 6;
+            this.tableLayoutPanel.RowCount = 7;
+            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
@@ -274,6 +277,17 @@
             this.currentDemoUI.Size = new System.Drawing.Size(220, 20);
             this.currentDemoUI.TabIndex = 11;
             // 
+            // bestPossibleUI1
+            // 
+            this.bestPossibleUI1.AutoSize = true;
+            this.bestPossibleUI1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.bestPossibleUI1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.bestPossibleUI1.Location = new System.Drawing.Point(0, 367);
+            this.bestPossibleUI1.Margin = new System.Windows.Forms.Padding(0);
+            this.bestPossibleUI1.Name = "bestPossibleUI1";
+            this.bestPossibleUI1.Size = new System.Drawing.Size(220, 20);
+            this.bestPossibleUI1.TabIndex = 8;
+            // 
             // runNameUI
             // 
             this.runNameUI.Anchor = System.Windows.Forms.AnchorStyles.Top;
@@ -293,7 +307,7 @@
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(5)))), ((int)(((byte)(5)))));
-            this.ClientSize = new System.Drawing.Size(220, 414);
+            this.ClientSize = new System.Drawing.Size(220, 434);
             this.ContextMenuStrip = this.contextMenuStrip;
             this.Controls.Add(this.tableLayoutPanel);
             this.Controls.Add(this.runNameUI);
@@ -336,6 +350,6 @@
         private ComparisonBestUI comparisonBestUI;
         private System.Windows.Forms.ToolStripMenuItem fromDemosToolStripMenuItem;
         private CurrentDemoUI currentDemoUI;
-
+        private BestPossibleUI bestPossibleUI1;
     }
 }
