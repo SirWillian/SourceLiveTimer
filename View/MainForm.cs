@@ -127,11 +127,11 @@ namespace SourceLiveTimer.View
                 DemoDirectory = (string)Properties.Settings.Default["DemoDirectory"];
                 directoryScannerWorker.RunWorkerAsync(DemoDirectory);
             }
-            
+
             if (!String.IsNullOrEmpty((string)Properties.Settings.Default["SplitsFile"]))
             {
                 OpenSplitsFile((string)Properties.Settings.Default["SplitsFile"]);
-            }             
+            }
         }
 
         private void UpdateContextMenu()
@@ -179,44 +179,54 @@ namespace SourceLiveTimer.View
         private void DirectoryScannerWorker_DoWork(object sender, System.ComponentModel.DoWorkEventArgs e)
         {
             BackgroundWorker worker = sender as BackgroundWorker;
+            var seenFiles = Directory.GetFiles((string)e.Argument, "*.dem");
             DateTime startTime = DateTime.Now;
+            string currentDemo = null;
+
+            worker.ReportProgress(0, "GLHF");
 
             while (!worker.CancellationPending)
             {
-                IEnumerable<string> allDemos = Directory.GetFiles((string)e.Argument, "*.dem");
-                
-                foreach (string demo in allDemos)
-                {                    
-                    DateTime writeTime = File.GetLastWriteTime(demo);                    
+                if (currentDemo != null)
+                {
+                    DateTime writeTime = File.GetLastWriteTime(currentDemo);
                     if (writeTime.CompareTo(startTime) > 0)
                     {
-                        worker.ReportProgress(0, Path.GetFileName(demo));
-                        MonitorDemo(worker, demo);
-                        worker.ReportProgress(0, null);
-                        startTime = DateTime.Now;
-                        break;
-                    }
-                    Thread.Sleep(1);
-                }
-            }
-        }
+                        // Sleep when a file's write time is set to ensure that nobody is trying to read it still.
+                        worker.ReportProgress(0, "Pause");
+                        Thread.Sleep(2500);
 
-        private void MonitorDemo(BackgroundWorker worker, string demo)
-        {
-            Thread.Sleep(DIRECTORY_SCANNER_REFRESH_RATE);
-            while (!worker.CancellationPending)
-            {
-                try
-                {
-                    DemoParseResult demoParseResult = DemoParser.ParseDemo(demo);
-                    worker.ReportProgress(0, demoParseResult);
-                    return;
+                        if (worker.CancellationPending)
+                        {
+                            break;
+                        }
+
+                        // Read the file for splits.
+                        worker.ReportProgress(0, "Reading Demo");
+                        worker.ReportProgress(0, DemoParser.ParseDemo(currentDemo));
+                        worker.ReportProgress(0, null);
+
+                        currentDemo = null;
+                    }
                 }
-                catch
+                else
                 {
-                    //demo still being written to
+                    var newFiles = Directory.GetFiles((string)e.Argument, "*.dem");
+                    var newFile = newFiles.Except(seenFiles).FirstOrDefault();
+
+                    if (newFile != null)
+                    {
+                        currentDemo = newFile;
+                        seenFiles = newFiles;
+
+                        worker.ReportProgress(0, Path.GetFileName(currentDemo));
+
+                        startTime = DateTime.Now.AddSeconds(1);
+                    }
                 }
-                Thread.Sleep(DIRECTORY_SCANNER_REFRESH_RATE);
+
+                // Take a nice, long nap so we don't blitz the IO system.
+                Thread.Sleep(1000);
             }
         }
 
@@ -382,7 +392,7 @@ namespace SourceLiveTimer.View
             Run.UpdateBests(true);
 
             if (Run.IsPersonalBest())
-                Run.Reset(true);            
+                Run.Reset(true);
 
             try
             {
@@ -397,7 +407,7 @@ namespace SourceLiveTimer.View
             {
                 MessageBox.Show("An error occured while trying to save the splits", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
-            }            
+            }
         }
 
         private void CloseSplitsToolStripMenuItem_Click(object sender, EventArgs e)
@@ -406,11 +416,11 @@ namespace SourceLiveTimer.View
             {
                 if (CheckForUnsavedChanges())
                 {
-                    UnloadRun();                    
+                    UnloadRun();
                 }
             }
         }
-        
+
         private void ResetToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (Run != null && !Run.AtFirstSplit())
@@ -431,7 +441,7 @@ namespace SourceLiveTimer.View
                 RunView.UpdateComponent();
             }
         }
-        
+
         private void QuitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (CheckForUnsavedChanges())
@@ -458,7 +468,7 @@ namespace SourceLiveTimer.View
                     else if (result == DialogResult.Cancel)
                         return false;
                 }
-            }            
+            }
             return true;
         }
 
@@ -477,7 +487,7 @@ namespace SourceLiveTimer.View
             Run.OnReset += (o, e) => { UpdateContextMenu(); };
 
             RunView.LoadRun(run);
-            
+
             foreach (Control c in tableLayoutPanel.Controls)
             {
                 EnableDragging(c);
@@ -489,14 +499,14 @@ namespace SourceLiveTimer.View
             Run = null;
             SplitsFile = null;
             Saved = false;
-            RunView.UnloadRun();            
+            RunView.UnloadRun();
         }
 
         private bool RunHasUnsavedChanges()
         {
             return !Run.AtFirstSplit()
                 ? !Saved || Run.IsPersonalBest() || Run.ContainsBests()
-                : !Saved || Run.IsPersonalBest();            
+                : !Saved || Run.IsPersonalBest();
         }
 
         private void EnableDragging(Control c)
