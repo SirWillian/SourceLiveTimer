@@ -46,10 +46,11 @@
             this.tableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel.Margin = new System.Windows.Forms.Padding(0);
+            this.tableLayoutPanel.MaximumSize = new System.Drawing.Size(220, 0);
             this.tableLayoutPanel.Name = "tableLayoutPanel";
             this.tableLayoutPanel.RowCount = 1;
             this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel.Size = new System.Drawing.Size(189, 30);
+            this.tableLayoutPanel.Size = new System.Drawing.Size(220, 30);
             this.tableLayoutPanel.TabIndex = 0;
             // 
             // currentDemoTextLabel
@@ -62,7 +63,7 @@
             this.currentDemoTextLabel.Location = new System.Drawing.Point(3, 0);
             this.currentDemoTextLabel.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
             this.currentDemoTextLabel.Name = "currentDemoTextLabel";
-            this.currentDemoTextLabel.Size = new System.Drawing.Size(82, 30);
+            this.currentDemoTextLabel.Size = new System.Drawing.Size(96, 30);
             this.currentDemoTextLabel.TabIndex = 3;
             this.currentDemoTextLabel.Text = "Current Demo";
             this.currentDemoTextLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -76,7 +77,7 @@
             this.currentDemoDemoLabel.BackColor = System.Drawing.Color.Transparent;
             this.currentDemoDemoLabel.Font = new System.Drawing.Font("Segoe UI", 8.5F);
             this.currentDemoDemoLabel.ForeColor = System.Drawing.Color.Black;
-            this.currentDemoDemoLabel.Location = new System.Drawing.Point(173, 3);
+            this.currentDemoDemoLabel.Location = new System.Drawing.Point(204, 3);
             this.currentDemoDemoLabel.Margin = new System.Windows.Forms.Padding(0, 3, 4, 3);
             this.currentDemoDemoLabel.Name = "currentDemoDemoLabel";
             this.currentDemoDemoLabel.Size = new System.Drawing.Size(12, 24);
@@ -93,7 +94,7 @@
             this.Controls.Add(this.tableLayoutPanel);
             this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "CurrentDemoUI";
-            this.Size = new System.Drawing.Size(189, 30);
+            this.Size = new System.Drawing.Size(220, 30);
             this.tableLayoutPanel.ResumeLayout(false);
             this.tableLayoutPanel.PerformLayout();
             this.ResumeLayout(false);
