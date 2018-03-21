@@ -198,12 +198,12 @@
             this.tableLayoutPanel.RowCount = 7;
             this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel.Size = new System.Drawing.Size(220, 370);
+            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 22F));
+            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 22F));
+            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 22F));
+            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 22F));
+            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 22F));
+            this.tableLayoutPanel.Size = new System.Drawing.Size(220, 400);
             this.tableLayoutPanel.TabIndex = 7;
             this.tableLayoutPanel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Borderless_MouseDown);
             this.tableLayoutPanel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Borderless_MouseMove);
@@ -241,7 +241,7 @@
             this.possibleTimeSaveUI.Location = new System.Drawing.Point(0, 287);
             this.possibleTimeSaveUI.Margin = new System.Windows.Forms.Padding(0);
             this.possibleTimeSaveUI.Name = "possibleTimeSaveUI";
-            this.possibleTimeSaveUI.Size = new System.Drawing.Size(220, 20);
+            this.possibleTimeSaveUI.Size = new System.Drawing.Size(220, 22);
             this.possibleTimeSaveUI.TabIndex = 9;
             // 
             // comparisonBestUI
@@ -252,7 +252,7 @@
             this.comparisonBestUI.Location = new System.Drawing.Point(0, 307);
             this.comparisonBestUI.Margin = new System.Windows.Forms.Padding(0);
             this.comparisonBestUI.Name = "comparisonBestUI";
-            this.comparisonBestUI.Size = new System.Drawing.Size(220, 20);
+            this.comparisonBestUI.Size = new System.Drawing.Size(220, 22);
             this.comparisonBestUI.TabIndex = 9;
             // 
             // sumOfBestUI
@@ -263,7 +263,7 @@
             this.sumOfBestUI.Location = new System.Drawing.Point(0, 327);
             this.sumOfBestUI.Margin = new System.Windows.Forms.Padding(0);
             this.sumOfBestUI.Name = "sumOfBestUI";
-            this.sumOfBestUI.Size = new System.Drawing.Size(220, 20);
+            this.sumOfBestUI.Size = new System.Drawing.Size(220, 22);
             this.sumOfBestUI.TabIndex = 8;
             // 
             // currentDemoUI
@@ -274,7 +274,7 @@
             this.currentDemoUI.Location = new System.Drawing.Point(0, 347);
             this.currentDemoUI.Margin = new System.Windows.Forms.Padding(0);
             this.currentDemoUI.Name = "currentDemoUI";
-            this.currentDemoUI.Size = new System.Drawing.Size(220, 20);
+            this.currentDemoUI.Size = new System.Drawing.Size(220, 22);
             this.currentDemoUI.TabIndex = 11;
             // 
             // bestPossibleUI1
@@ -285,7 +285,7 @@
             this.bestPossibleUI1.Location = new System.Drawing.Point(0, 367);
             this.bestPossibleUI1.Margin = new System.Windows.Forms.Padding(0);
             this.bestPossibleUI1.Name = "bestPossibleUI1";
-            this.bestPossibleUI1.Size = new System.Drawing.Size(220, 20);
+            this.bestPossibleUI1.Size = new System.Drawing.Size(220, 22);
             this.bestPossibleUI1.TabIndex = 8;
             // 
             // runNameUI
@@ -307,7 +307,7 @@
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(5)))), ((int)(((byte)(5)))));
-            this.ClientSize = new System.Drawing.Size(220, 434);
+            this.ClientSize = new System.Drawing.Size(220, 444);
             this.ContextMenuStrip = this.contextMenuStrip;
             this.Controls.Add(this.tableLayoutPanel);
             this.Controls.Add(this.runNameUI);
