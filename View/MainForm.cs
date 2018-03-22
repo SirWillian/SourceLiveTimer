@@ -194,7 +194,7 @@ namespace SourceLiveTimer.View
                     {
                         // Sleep when a file's write time is set to ensure that nobody is trying to read it still.
                         worker.ReportProgress(0, "Pause");
-                        Thread.Sleep(2500);
+                        Thread.Sleep(10 * 1000);
 
                         if (worker.CancellationPending)
                         {
