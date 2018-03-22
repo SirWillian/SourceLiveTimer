@@ -35,6 +35,7 @@ namespace SourceLiveTimer.View
             }
             set
             {
+                NewRun = true;
                 _Run = value;
                 UpdateContextMenu();
             }
@@ -176,21 +177,31 @@ namespace SourceLiveTimer.View
             directoryScannerWorker.RunWorkerAsync(DemoDirectory);
         }
 
+        bool NewRun = true;
+
         private void DirectoryScannerWorker_DoWork(object sender, System.ComponentModel.DoWorkEventArgs e)
         {
             BackgroundWorker worker = sender as BackgroundWorker;
-            var seenFiles = Directory.GetFiles((string)e.Argument, "*.dem");
             DateTime startTime = DateTime.Now;
             string currentDemo = null;
 
-            worker.ReportProgress(0, "GLHF");
-
             while (!worker.CancellationPending)
             {
-                if (currentDemo != null)
+                if (NewRun)
+                {
+                    NewRun = false;
+                    startTime = DateTime.Now;
+                    currentDemo = null;
+                    worker.ReportProgress(0, "GLHF");
+                }
+                else if (Run.LastSplitDone())
+                {
+                    worker.ReportProgress(0, "GG");
+                }
+                else if (currentDemo != null)
                 {
                     DateTime writeTime = File.GetLastWriteTime(currentDemo);
-                    if (writeTime.CompareTo(startTime) > 0)
+                    if (writeTime > startTime)
                     {
                         // Sleep when a file's write time is set to ensure that nobody is trying to read it still.
                         worker.ReportProgress(0, "Pause");
@@ -211,13 +222,16 @@ namespace SourceLiveTimer.View
                 }
                 else
                 {
-                    var newFiles = Directory.GetFiles((string)e.Argument, "*.dem");
-                    var newFile = newFiles.Except(seenFiles).FirstOrDefault();
+                    var demos = Directory.GetFiles((string)e.Argument, "*.dem");
+                    var newFile = demos.Select(d => new
+                    {
+                        WriteTime = File.GetLastWriteTime(d),
+                        Name = d
+                    }).ToList().Where(d => d.WriteTime > startTime).OrderByDescending(d => d.WriteTime).FirstOrDefault()?.Name;
 
                     if (newFile != null)
                     {
                         currentDemo = newFile;
-                        seenFiles = newFiles;
 
                         worker.ReportProgress(0, Path.GetFileName(currentDemo));
 
